@@ -1,0 +1,43 @@
+.nav-bar {
+  margin: 4%;
+  margin-top: 0;
+  padding: 1%;
+}
+
+.brand-name {
+  margin-left: 5%;
+}
+
+#raise {
+  margin-top: 100px;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 0.5%;
+}
+
+.new-proposal-heading {
+  font-size: x-large;
+  font-weight: 400;
+  text-align: center;
+}
+
+.center-align {
+  text-align: center;
+}
+
+.form-raise {
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.form-donate, .form-withdraw {
+  padding-left: 27.8%;
+  padding-right: 27.8%;
+}
+
+#footer {
+  margin-top: 15%;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
