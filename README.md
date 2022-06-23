@@ -46,7 +46,7 @@ To deploy this project
 - To Make a proposal, simply put in the requested details in the fields and click on the create proposal button. Amount is where you can enter the amount you want to raise, Account address is where you put in your account address, where you want the funds to transferred to, Description is where you put in your cause, your need, anything you'd like to convey to the world and why they should donate you.
 - After you put in details it should look something like this.
 
-    ![CREATE_PROPOSAL_INITIAL](https://user-images.githubusercontent.com/79625246/175297770-66dc23bb-f009-455a-b5b6-c9d04c295c04.jpg)
+    ![CREATE_PROPOSAL_INITIAL](https://user-images.githubusercontent.com/79625246/175364454-cd0c7e0c-bc56-4ddb-b1a5-2cfef79c2350.jpg)
 
 - After you click on the "Create Proposal" button, metamask should pop up and ask you to confirm the transaction.
 
@@ -57,7 +57,7 @@ To deploy this project
 - To fund any proposal simply scroll down to the donate section, or click on the donate tab in the navbar. 
 - Something like this should show up and here you can enter the proposal ID you want to fund with the amount that you want to donate.
 
-    ![DONATE_INITIAL](https://user-images.githubusercontent.com/79625246/175298506-dc9559f8-b40c-4fe3-9c21-25e5e95205e7.jpg)
+    ![DONATE_INITIAL](https://user-images.githubusercontent.com/79625246/175364468-0dc23156-52e0-4127-995f-abd1e1021e71.jpg)
 
 - After you click on the "Donate" button, another metamask window should pop up and ask you confirm the transaction, as soon as you click on confirm, you have successfully donated to your desired proposal ID.
 - It should look like this
