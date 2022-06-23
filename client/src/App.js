@@ -16,7 +16,7 @@ function App() {
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = "0xEBe7F3b9C3E96B8C1C573dE231167AfbDf862B4e";
 
   const ABI = [
     {
@@ -266,6 +266,7 @@ function App() {
     const balanceFormatted = ethers.utils.formatEther(balance);
     setBalance(balanceFormatted);
     setId(proposalIdToFundValue);
+    setAmountToFundValue('');
   }
 
   const handleWithdrawSubmit = async (e) => {
@@ -276,6 +277,7 @@ function App() {
     const balanceFormatted = ethers.utils.formatEther(balance);
     setBalance(balanceFormatted);
     setId(withdrawIdValue);
+    setWithdrawValue('');
   }
 
 
