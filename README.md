@@ -1,4 +1,18 @@
 
+# Fundraiser
+
+You can fund yourself or your cause by creating new proposals and
+people around the world can donate to you or your cause.
+
+
+
+## Authors
+
+- [Aryan Shukla](https://www.github.com/aryannewyork)
+- [Mohammad Touseef](https://www.github.com/touseef-md)
+- [Mudit Jain](https://www.github.com/sigma2345)
+
+
 ## Deployment
 
 To deploy this project
