@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { ethers } from "ethers";
 import "./assets/css/style.css";
 import logo from "./assets/images/maple-leaf.png";
+// const { abi } = require('../../contracts/artifacts/contracts/Fundraiser.sol/Fundraiser.json')
+/* global BigInt */
+
 
 function App() {
   const [balance, setBalance] = useState();
@@ -16,9 +19,9 @@ function App() {
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const contractAddress = "0xEBe7F3b9C3E96B8C1C573dE231167AfbDf862B4e";
+  const contractAddress = "0x956CA72CdA1Fe7D41a544421EA76D6bc5c3A2153";
 
-  const ABI = [
+  const ABI =  [
     {
       "inputs": [],
       "stateMutability": "nonpayable",
@@ -55,6 +58,50 @@ function App() {
         }
       ],
       "name": "proposalCompleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "receiver",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "proposalDonated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proposer",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "proposalInitiated",
       "type": "event"
     },
     {
@@ -158,19 +205,6 @@ function App() {
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "variable",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "uint256",
@@ -180,7 +214,7 @@ function App() {
       ],
       "name": "withdraw",
       "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "nonpayable",
       "type": "function"
     }
   ];
@@ -259,7 +293,7 @@ function App() {
 
   const handleDonateSubmit = async (e) => {
     e.preventDefault();
-    const donated = await contract.FundProposal(proposalIdToFundValue, { value: amountToFundValue });
+    const donated = await contract.FundProposal(proposalIdToFundValue, { value: BigInt(amountToFundValue*(10**18)) });
     await donated.wait();
     setProposalIdToFundValue('');
     const balance = await provider.getBalance(contractAddress);
