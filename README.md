@@ -1,16 +1,4 @@
 
-# Fundraiser
-
-You can fund yourself or your cause by creating new proposals and
-people around the world can donate to you or your cause.
-
-
-
-## Authors
-
-- [Aryan Shukla](https://www.github.com/aryannewyork)
-
-
 ## Deployment
 
 To deploy this project
@@ -42,6 +30,11 @@ To deploy this project
     ![FULL_PAGE](https://user-images.githubusercontent.com/79625246/175295941-c432aeac-ea8a-4ffd-a8c2-2922eea0cef8.jpg)
 
 - Now make sure you are on the Alfajores testnet and are connected to the network. Metamask should pop up as your website loads and will ask you to connect your account, you can select any of your account, with sufficient funds for the same. 
+ - The Metamask window pop up should look something like this
+ 
+    ![CONNECT_ACCOUNT_METAMASK](https://user-images.githubusercontent.com/79625246/175305923-396c2a51-ecf2-4a48-a8a4-0ca71be4ac23.jpg)
+
+- After you click on next you should be connected to you chosen account on Metamask with Alfajores test network.
 
 - This is the starting page of the application. Here you will find 4 sections:
     
