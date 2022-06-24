@@ -42,11 +42,13 @@ To deploy this project
 - After that you should see something like this, on your browser
 
 - Contract Address
-``` 0x8132DB79Aed16929816789E396c48e7e299dd5e0
+- 
+```bash
+    0x8132DB79Aed16929816789E396c48e7e299dd5e0
 ```
 
 
-    ![FULL_PAGE](https://user-images.githubusercontent.com/79625246/175295941-c432aeac-ea8a-4ffd-a8c2-2922eea0cef8.jpg)
+   ![FULL_PAGE](https://user-images.githubusercontent.com/79625246/175295941-c432aeac-ea8a-4ffd-a8c2-2922eea0cef8.jpg)
 
 - Now make sure you are on the Alfajores testnet and are connected to the network. Metamask should pop up as your website loads and will ask you to connect your account, you can select any of your account, with sufficient funds for the same. 
  - The Metamask window pop up should look something like this
