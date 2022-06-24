@@ -41,6 +41,11 @@ To deploy this project
 - This should opwn your browser and run the react application on your localhost.
 - After that you should see something like this, on your browser
 
+- Contract Address
+``` 0x8132DB79Aed16929816789E396c48e7e299dd5e0
+```
+
+
     ![FULL_PAGE](https://user-images.githubusercontent.com/79625246/175295941-c432aeac-ea8a-4ffd-a8c2-2922eea0cef8.jpg)
 
 - Now make sure you are on the Alfajores testnet and are connected to the network. Metamask should pop up as your website loads and will ask you to connect your account, you can select any of your account, with sufficient funds for the same. 
@@ -102,6 +107,10 @@ To deploy this project
 
     ![BLOCK_EXPLORER-1](https://user-images.githubusercontent.com/79625246/175301098-f056a17c-7ae0-4a3b-9009-2d2cf242ba91.jpg)
     ![BLOCK_EXPLORER-2](https://user-images.githubusercontent.com/79625246/175301105-1b8e4880-f3b1-45bc-8c6b-5313e79a6a60.jpg)
+    
+ - Verified Contract
+    ![BLOCK_EXPLORER-1](https://user-images.githubusercontent.com/79625246/175659814-0dad63fa-a3c4-4c10-ba6b-1e5befbcef8d.jpg)
+
 
 
 - __NOTE:__ 
@@ -110,5 +119,5 @@ To deploy this project
 
         [Alfajores Testnet Faucet](https://celo.org/developers/faucet)
 
-    2) The values of amounts are in Wei so 1 CELO = 10^18 CELO Wei
-    3) This is a still under development project, so expect a lot of changes in the coming time. Right now it is only in its initial stages.
+    2) The values of amounts are in CELO.
+    3) This is a developing project, so expect a lot of changes in the coming time. Right now it is only in its initial stages. We will be adding capabilities to upload pictures or videos to the description section to make your proposal more appealing to the masses, Along with that we are also in the process of adding authentication capability to check the legitimacy of proposals being created for fundraising. Along with that, we are constantly trying to bring changes to the application to better facilitate the user experience.
