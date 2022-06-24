@@ -42,7 +42,6 @@ To deploy this project
 - After that you should see something like this, on your browser
 
 - Contract Address
-- 
 ```bash
     0x8132DB79Aed16929816789E396c48e7e299dd5e0
 ```
