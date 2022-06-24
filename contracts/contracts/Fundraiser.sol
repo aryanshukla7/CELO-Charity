@@ -33,7 +33,7 @@ contract Fundraiser is ReentrancyGuard {
         uint256 indexed id ,
         address indexed proposer, 
         uint256 indexed _amount
-    ) ;
+    );
     event proposalCompleted(
         uint256 indexed proposalId
     );

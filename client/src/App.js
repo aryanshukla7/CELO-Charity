@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from "ethers";
-import "./assets/css/style.css";
+import "./assets/css/app.css";
 import logo from "./assets/images/maple-leaf.png";
 // const { abi } = require('../../contracts/artifacts/contracts/Fundraiser.sol/Fundraiser.json')
 /* global BigInt */
+import Card from './component/FundraiserCard';
+// import { cardInfo } from './component/FundraiserCard';
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
   const signer = provider.getSigner();
   const contractAddress = "0x956CA72CdA1Fe7D41a544421EA76D6bc5c3A2153";
 
-  const ABI =  [
+  const ABI = [
     {
       "inputs": [],
       "stateMutability": "nonpayable",
@@ -233,135 +235,145 @@ function App() {
       setBalance(balanceFormatted);
     }
 
+
     connectWallet()
       .catch(console.error);
 
     getBalance()
       .catch(console.error);
 
-  })
-
-  const handleAmountChange = (e) => {
-    setAmountValue(e.target.value);
-  }
-
-  const handleAddressChange = (e) => {
-    setAddressValue(e.target.value);
-  }
-
-  const handleDescriptionChange = (e) => {
-    setDescriptionValue(e.target.value);
-  }
-
-  const handleProposalIdChange = (e) => {
-    setProposalIdValue(e.target.value);
-  }
-
-  const handleProposalIdToFundChange = (e) => {
-    setProposalIdToFundValue(e.target.value);
-  }
-
-  const handleAmountToFundChange = (e) => {
-    setAmountToFundValue(e.target.value);
-  }
-
-  const handleWithdrawChange = (e) => {
-    setWithdrawValue(e.target.value);
-  }
+    // return new Promise((resolve, reject) => {
+    //   contract.on("proposalInitiated", (event) => {
+    //     cardInfo.push({ title: "abs", text: "xyz" });
+    //     console.log(event)
+    //   });
+    //   resolve()
+    //   .catch(console.error);
+    //   reject()
+    // })  
+  });
 
 
-  const handleProposalSubmit = async (e) => {
-    e.preventDefault();
-    const ethValue = ethers.utils.parseEther(amountValue);
-    const proposal = await contract.newProposal(ethValue, addressValue, descriptionValue);
-    await proposal.wait();
-    setAmountValue('');
-    setAddressValue('');
-    setDescriptionValue('');
-  }
+const handleAmountChange = (e) => {
+  setAmountValue(e.target.value);
+}
 
-  const handleSearchSubmit = async (e) => {
-    e.preventDefault();
-    await contract.getProposal(proposalIdValue);
-    // await search.wait();
-    setProposalIdValue('')
-    const balance = await provider.getBalance(contractAddress);
-    const balanceFormatted = ethers.utils.formatEther(balance);
-    setBalance(balanceFormatted);
-    setId(proposalIdValue);
-  }
+const handleAddressChange = (e) => {
+  setAddressValue(e.target.value);
+}
 
-  const handleDonateSubmit = async (e) => {
-    e.preventDefault();
-    const donated = await contract.FundProposal(proposalIdToFundValue, { value: BigInt(amountToFundValue*(10**18)) });
-    await donated.wait();
-    setProposalIdToFundValue('');
-    const balance = await provider.getBalance(contractAddress);
-    const balanceFormatted = ethers.utils.formatEther(balance);
-    setBalance(balanceFormatted);
-    setId(proposalIdToFundValue);
-    setAmountToFundValue('');
-  }
+const handleDescriptionChange = (e) => {
+  setDescriptionValue(e.target.value);
+}
 
-  const handleWithdrawSubmit = async (e) => {
-    e.preventDefault();
-    const withdraw = await contract.withdraw(withdrawIdValue);
-    await withdraw.wait();
-    const balance = await provider.getBalance(contractAddress);
-    const balanceFormatted = ethers.utils.formatEther(balance);
-    setBalance(balanceFormatted);
-    setId(withdrawIdValue);
-    setWithdrawValue('');
-  }
+const handleProposalIdChange = (e) => {
+  setProposalIdValue(e.target.value);
+}
+
+const handleProposalIdToFundChange = (e) => {
+  setProposalIdToFundValue(e.target.value);
+}
+
+const handleAmountToFundChange = (e) => {
+  setAmountToFundValue(e.target.value);
+}
+
+const handleWithdrawChange = (e) => {
+  setWithdrawValue(e.target.value);
+}
 
 
+const handleProposalSubmit = async (e) => {
+  e.preventDefault();
+  const ethValue = ethers.utils.parseEther(amountValue);
+  const proposal = await contract.newProposal(ethValue, addressValue, descriptionValue);
+  await proposal.wait();
+  setAmountValue('');
+  setAddressValue('');
+  setDescriptionValue('');
+}
 
-  return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar-light nav-bar fixed-top bg-light">
-        <a href="/" className="navbar-brand" >
-          <img src={logo} alt="LOGO" width={40} height={40} />
-          <span className="brand-name">Fundraiser</span>
-        </a>
-        <div className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-          <a className="me-3 py-2 text-dark text-decoration-none" href='#raise'>Raise</a>
-          <a className="me-3 py-2 text-dark text-decoration-none" href='#donate'>Donate</a>
-          <a className="me-3 py-2 text-dark text-decoration-none" href='#withdraw'>Withdraw</a>
-          <a className="me-3 py-2 text-dark text-decoration-none" href='#search'>Search</a>
+const handleSearchSubmit = async (e) => {
+  e.preventDefault();
+  await contract.getProposal(proposalIdValue);
+  // await search.wait();
+  setProposalIdValue('')
+  const balance = await provider.getBalance(contractAddress);
+  const balanceFormatted = ethers.utils.formatEther(balance);
+  setBalance(balanceFormatted);
+  setId(proposalIdValue);
+}
+
+const handleDonateSubmit = async (e) => {
+  e.preventDefault();
+  const donated = await contract.FundProposal(proposalIdToFundValue, { value: BigInt(amountToFundValue * (10 ** 18)) });
+  await donated.wait();
+  setProposalIdToFundValue('');
+  const balance = await provider.getBalance(contractAddress);
+  const balanceFormatted = ethers.utils.formatEther(balance);
+  setBalance(balanceFormatted);
+  setId(proposalIdToFundValue);
+  setAmountToFundValue('');
+}
+
+const handleWithdrawSubmit = async (e) => {
+  e.preventDefault();
+  const withdraw = await contract.withdraw(withdrawIdValue);
+  await withdraw.wait();
+  const balance = await provider.getBalance(contractAddress);
+  const balanceFormatted = ethers.utils.formatEther(balance);
+  setBalance(balanceFormatted);
+  setId(withdrawIdValue);
+  setWithdrawValue('');
+}
+
+
+return (
+  <>
+    <nav className="navbar navbar-expand-lg navbar-light nav-bar fixed-top bg-light">
+      <a href="/" className="navbar-brand" >
+        <img src={logo} alt="LOGO" width={40} height={40} />
+        <span className="brand-name">Fundraiser</span>
+      </a>
+      <div className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a className="me-3 py-2 text-dark text-decoration-none" href='#raise'>Raise</a>
+        <a className="me-3 py-2 text-dark text-decoration-none" href='#donate'>Donate</a>
+        <a className="me-3 py-2 text-dark text-decoration-none" href='#withdraw'>Withdraw</a>
+        <a className="me-3 py-2 text-dark text-decoration-none" href='#search'>Search</a>
+      </div>
+    </nav>
+
+    <section id='raise'>
+      <div className='form-raise '>
+        <div className="center-align">
+          <span className="new-proposal-heading">Create A New Proposal</span>
         </div>
-      </nav>
-
-      <section id='raise'>
-        <div className='form-raise '>
-          <div className="center-align">
-            <span className="new-proposal-heading">Create A New Proposal</span>
-          </div>
-          <div className="card-body">
-            <form className="p-3 bg-light" onSubmit={handleProposalSubmit}>
-              <div className="mb-3">
-                <label className="form-label">Amount</label>
-                <input type="number" className="form-control" placeholder="0" onChange={handleAmountChange} value={amountValue} />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Account Address</label>
-                <input type="text" className="form-control" onChange={handleAddressChange} value={addressValue} />
-              </div>
-              <div className="mb-3">
-                <label className="form-label">Description</label>
-                <textarea className="form-control" name="description" rows="6" cols="50" onChange={handleDescriptionChange} value={descriptionValue} />
-              </div>
-              <button type="submit" className="btn btn-outline-primary">Create Proposal</button>
-            </form>
-          </div>
+        <div className="card-body">
+          <form className="p-3 bg-light" onSubmit={handleProposalSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Amount</label>
+              <input type="number" className="form-control" placeholder="0" onChange={handleAmountChange} value={amountValue} />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Account Address</label>
+              <input type="text" className="form-control" onChange={handleAddressChange} value={addressValue} />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Description</label>
+              <textarea className="form-control" name="description" rows="6" cols="50" onChange={handleDescriptionChange} value={descriptionValue} />
+            </div>
+            <button type="submit" className="btn btn-outline-primary">Create Proposal</button>
+          </form>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id='donate'>
-        <div className='form-donate mt-5'>
-          <div className="center-align">
-            <span className="new-proposal-heading">Donate</span>
-          </div>
-          <div className="card-body">
+    <section id='donate'>
+      <div className='form-donate mt-5'>
+        <div className="center-align">
+          <span className="new-proposal-heading">Donate</span>
+        </div>
+        <div className="card-body">
           <form className="p-3 bg-light" onSubmit={handleDonateSubmit}>
             <div className="mb-3">
               <label className="form-label">Proposal ID</label>
@@ -373,16 +385,16 @@ function App() {
             </div>
             <button type="submit" className="btn btn-outline-dark">Donate</button>
           </form>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id='withdraw'>
-        <div className='form-withdraw mt-5'>
-          <div className="center-align">
-            <span className="new-proposal-heading">Withdraw</span>
-          </div>
-          <div className="card-body">
+    <section id='withdraw'>
+      <div className='form-withdraw mt-5'>
+        <div className="center-align">
+          <span className="new-proposal-heading">Withdraw</span>
+        </div>
+        <div className="card-body">
           <form className="p-3 bg-light" onSubmit={handleWithdrawSubmit}>
             <p className="lead">Enter Proposal ID</p>
             <div className="mb-3">
@@ -390,16 +402,16 @@ function App() {
             </div>
             <button type="submit" className="btn btn-outline-success">Withdraw</button>
           </form>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id='search'>
-        <div className='form-withdraw mt-5'>
-          <div className="center-align">
-            <span className="new-proposal-heading">Get Proposal Details</span>
-          </div>
-          <div className="card-body">
+    <section id='search'>
+      <div className='form-withdraw mt-5'>
+        <div className="center-align">
+          <span className="new-proposal-heading">Get Proposal Details</span>
+        </div>
+        <div className="card-body">
           <h3><small className="text-muted">Proposal ID: {id}</small></h3>
           <h3><small className="text-muted"> Contract Balance: {balance} CELO</small></h3>
           <form className="mt-5 p-3 bg-light" onSubmit={handleSearchSubmit}>
@@ -409,18 +421,26 @@ function App() {
             </div>
             <button type="submit" className="btn btn-outline-success">Search</button>
           </form>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <section id="cards">
+      <div className="center-align">
+        <span className='display-6 cards-heading'> Proposals Recently Created </span>
+      </div>
+      <div className="cards">
+        <Card />
+      </div>
+    </section>
 
-      <section id="footer">
-        <div>
+    <section id="footer">
+      <div>
         CELO Hackathon @ 2022
-        </div>
-      </section>
+      </div>
+    </section>
 
-    </>
-  );
+  </>
+);
 }
 
 export default App;
