@@ -6,6 +6,7 @@ import logo from "./assets/images/maple-leaf.png";
 /* global BigInt */
 import Card from './component/FundraiserCard';
 import { cardInfo } from './component/FundraiserCard';
+// import { cardInfo } from './component/cardInfo';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const contractAddress = "0x415f3e9b39cF45426Eb53bdF07a311fFb3FbDC24";
+  const contractAddress = "0x8132DB79Aed16929816789E396c48e7e299dd5e0";
 
   const ABI = [
     {
@@ -261,7 +262,7 @@ function App() {
     });
     return () => {
       contract.removeAllListeners();
-      setAmountValue('8');
+      setAmountValue('');
     };
 
   }, []);

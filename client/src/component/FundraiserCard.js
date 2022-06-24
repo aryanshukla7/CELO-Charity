@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button } from "react-bootstrap";
+import { Card} from "react-bootstrap";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import '../assets/css/components.css';
@@ -8,30 +8,15 @@ export const cardInfo = [];
 
 
 const FundraiserCard = () => {
-    // const cardInfo = [
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" },
-    //     { title: "Hello World", text: "Some quick example text to build on the card title and make up the bulk of the card's content" }
-    // ];
-
     const renderCard = (card, index) => {
         return (
-            <Card style={{ width: '18rem', margin: '1%' }} key={index} className="card-render">
+            <Card style={{ margin: '1%' }} key={index} className="card-render">
+                <Card.Header>To Donate Visit the Donate Section</Card.Header>
                 <Card.Body>
-                    <Card.Title>{card.title}</Card.Title>
+                    <Card.Title>Proposal ID: {card.title}</Card.Title>
                     <Card.Text>
                         {card.text}
                     </Card.Text>
-                    <Button variant="primary">Donate</Button>
                 </Card.Body>
             </Card>
         )
