@@ -32,7 +32,8 @@ contract Fundraiser is ReentrancyGuard {
     event proposalInitiated(
         uint256 indexed id ,
         address indexed proposer, 
-        uint256 indexed _amount
+        uint256 indexed _amount,
+        string description
     );
     event proposalCompleted(
         uint256 indexed proposalId
@@ -63,7 +64,7 @@ contract Fundraiser is ReentrancyGuard {
 
         s_proposalId++;
         s_proposals.push(_proposal);
-        emit proposalInitiated(_proposal.id, _proposal.receiver, _amount) ; 
+        emit proposalInitiated(_proposal.id, _proposal.receiver, _amount, _description) ; 
     }
 
     function FundProposal(uint256 _id) public payable
