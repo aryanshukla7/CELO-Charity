@@ -4,6 +4,7 @@
 You can fund yourself or your cause by creating new proposals and
 people around the world can donate to you or your cause.
 
+- A YoutTube video of the application can be found [here](https://www.youtube.com/watch?v=zuoIFjUxXf0&feature=youtu.be), in the video all the features are demonstrated.
 
 
 ## Authors
